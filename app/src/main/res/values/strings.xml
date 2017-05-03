@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Couply</string>
+    <string name="jabong_button">Jabong</string>
+    <string name="myntra_button">Myntra</string>
 </resources>
