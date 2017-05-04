@@ -11,11 +11,13 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.example.a8aa8a.couply.R;
+import com.example.a8aa8a.couply.Utils.JavaScriptUtils;
 import com.example.a8aa8a.couply.Utils.LogUtils;
 import com.example.a8aa8a.couply.Utils.StringUtils;
 
 public class ShopWebViewActivity extends AppCompatActivity {
     public static final String TAG  = "ShopWebView";
+    public static final String CART = "cart";
     public static final String BUNDLE_URL = "bundle_url";
     private Intent mIntent;
     private String mURL;
@@ -59,6 +61,9 @@ public class ShopWebViewActivity extends AppCompatActivity {
         public void onPageFinished(WebView view, String url) {
             mProgressBar.setVisibility(View.GONE);
             mWebView.setVisibility(View.VISIBLE);
+            if(url.contains(ShopWebViewActivity.CART)){
+                mWebView. loadUrl(JavaScriptUtils.MYNTRA_SCRIPT);
+            }
             LogUtils.logDebug(ShopWebViewActivity.TAG, url);
         }
     }
